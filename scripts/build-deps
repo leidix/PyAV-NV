@@ -33,7 +33,7 @@ apt-get update && apt-get install -y build-essential yasm cmake gcc-9 ninja-buil
 
 
 # Clone and install ffmpeg with nvenc
-git clone --single-branch --branch n4.2.9 --recursive https://git.ffmpeg.org/ffmpeg.git ffmpeg-custom/
+git clone --single-branch --branch n5.1.3 --recursive https://git.ffmpeg.org/ffmpeg.git ffmpeg-custom/
 cd ffmpeg-custom
 export PATH="$PYAV_LIBRARY_PREFIX/bin:$PATH"
 export PKG_CONFIG_PATH="$PYAV_LIBRARY_PREFIX/lib/pkgconfig"
