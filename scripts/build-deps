@@ -32,6 +32,7 @@ cd nv-codec-headers && make install && cd ..
 apt-get update && apt-get install -y build-essential yasm cmake gcc-9 ninja-build autoconf automake git-core libass-dev libfreetype6-dev libgnutls28-dev libmp3lame-dev libsdl2-dev libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev meson pkg-config texinfo zlib1g-dev libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev nasm libx264-dev libx265-dev libvpx-dev libfdk-aac-dev libopus-dev
 
 
+# TODO: link against system-wide FFMPEG installation and use install_ffmpeg_nvenc.sh script
 # Clone and install ffmpeg with nvenc
 git clone --single-branch --branch n6.0 --recursive https://git.ffmpeg.org/ffmpeg.git ffmpeg-6.0/
 cd ffmpeg-6.0
