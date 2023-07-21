@@ -1,5 +1,8 @@
 #!/bin/bash
 
+mkdir vendor
+cd vendor
+
 # Clone and install ffnvcodec
 git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
 cd nv-codec-headers && make install && cd –
@@ -40,8 +43,8 @@ ninja install
 cd ../..
 
 # Clone and install ffmpeg with nvenc
-git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg/
-cd ffmpeg
+git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg-custom/
+cd ffmpeg-custom
 # configure with cuda
 ./configure --enable-nonfree --enable-cuda-nvcc --enable-libnpp --enable-gpl --enable-gnutls --enable-libaom --enable-libass --enable-libfdk-aac --enable-libfreetype --enable-libmp3lame --enable-libopus --enable-libsvtav1 --enable-libdav1d --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64 --extra-libs="-lpthread -lm" --disable-static --enable-shared
 # compile
@@ -50,4 +53,4 @@ make -j$(nproc)
 make install
 
 # Clean up
-cd .. && rm -rf nv-codec-headers ffmpeg ffmpeg_sources
+# cd .. && rm -rf nv-codec-headers && rm -rf ffmpeg-custom && rm -rf ffmpeg_sources
