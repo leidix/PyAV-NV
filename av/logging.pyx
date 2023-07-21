@@ -213,7 +213,7 @@ cdef const char *log_context_name(void *ptr) nogil:
     return obj.name
 
 cdef lib.AVClass log_class
-log_class.item_name = <const char *(void *) except? NULL nogil>log_context_name
+log_class.item_name = <const char *(*)(void *) except? NULL nogil>log_context_name
 
 cpdef log(int level, str name, str message):
     """Send a log through the library logging system.
@@ -229,7 +229,7 @@ cpdef log(int level, str name, str message):
     free(obj)
 
 
-cdef void log_callback(void *ptr, int level, const char *format, lib.va_list args) except? -1 nogil:
+cdef void log_callback(void *ptr, int level, const char *format, lib.va_list args) except? -1L nogil:
 
     cdef bint inited = lib.Py_IsInitialized()
     if not inited and not print_after_shutdown:
