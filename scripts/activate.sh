@@ -74,6 +74,7 @@ if [[ ! "$PYAV_LIBRARY_BUILD_ROOT" && -d /vagrant ]]; then
     # problems, so we move it to the user's home.
     PYAV_LIBRARY_ROOT="/home/vagrant/vendor"
 fi
+export PIP_CONSTRAINT=c.txt
 export PYAV_LIBRARY_ROOT="${PYAV_LIBRARY_ROOT-$PYAV_ROOT/vendor}"
 export PYAV_LIBRARY_BUILD="${PYAV_LIBRARY_BUILD-$PYAV_LIBRARY_ROOT/build}"
 export PYAV_LIBRARY_PREFIX="$PYAV_LIBRARY_BUILD/$PYAV_LIBRARY"
