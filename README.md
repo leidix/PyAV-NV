@@ -54,6 +54,9 @@ pip install --upgrade -r tests/requirements.txt
 
 # Build PyAV.
 make
+
+# Install
+pip install .
 ```
 
 ---
