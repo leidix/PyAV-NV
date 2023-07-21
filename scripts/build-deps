@@ -33,11 +33,8 @@ apt-get update && apt-get install -y build-essential yasm cmake gcc-9 ninja-buil
 
 
 # Clone and install ffmpeg with nvenc
-# wget -O ffmpeg-custom.tar.bz2 https://ffmpeg.org/releases/ffmpeg-4.1.3.tar.bz2
-# tar xjvf ffmpeg-custom.tar.bz2
-# mv ffmpeg-4.1.3 ffmpeg-custom
-git clone --single-branch --branch n5.1.3 --recursive https://git.ffmpeg.org/ffmpeg.git ffmpeg-custom/
-cd ffmpeg-custom
+git clone --single-branch --branch n6.0 --recursive https://git.ffmpeg.org/ffmpeg.git ffmpeg-6.0/
+cd ffmpeg-6.0
 export PATH="$PYAV_LIBRARY_PREFIX/bin:$PATH"
 export PKG_CONFIG_PATH="$PYAV_LIBRARY_PREFIX/lib/pkgconfig"
 # configure with cuda
