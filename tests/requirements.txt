@@ -1,5 +1,7 @@
 autopep8
-Cython
+Cython < 3.0
+setuptools
+virtualenv
 editorconfig
 flake8
 isort
