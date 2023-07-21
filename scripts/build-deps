@@ -23,41 +23,5 @@ mkdir -p "$PYAV_LIBRARY_PREFIX"
 cd "$PYAV_LIBRARY_ROOT"
 
 
-# Download and expand the source.
-if [[ ! -d $PYAV_LIBRARY ]]; then
-    url="https://ffmpeg.org/releases/$PYAV_LIBRARY.tar.gz"
-    echo Downloading $url
-    wget --no-check-certificate "$url" || exit 1
-    tar -xzf $PYAV_LIBRARY.tar.gz
-    rm $PYAV_LIBRARY.tar.gz
-    echo
-fi
-cd $PYAV_LIBRARY
-
-echo ./configure
-./configure \
-    --disable-doc \
-    --disable-mmx \
-    --disable-optimizations \
-    --disable-static \
-    --disable-stripping \
-    --enable-debug=3 \
-    --enable-gpl \
-    --enable-libx264 \
-    --enable-libxml2 \
-    --enable-shared \
-    --prefix="$PYAV_LIBRARY_PREFIX" \
-    || exit 2
-echo
-
-echo make
-make -j4 || exit 3
-echo
-
-echo make install
-make install || exit 4
-echo
-
-echo Build products:
-cd ~
-find "$PYAV_LIBRARY_PREFIX" -name '*libav*'
+# Install FFMPEG with NVENC
+./scripts/install_ffmpeg_nvenc.sh
