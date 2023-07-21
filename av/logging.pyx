@@ -347,5 +347,6 @@ cdef log_callback_emit(log):
 # Start the magic!
 # We allow the user to fully disable the logging system as it will not play
 # nicely with subinterpreters due to FFmpeg-created threads.
-if os.environ.get('PYAV_LOGGING') != 'off':
-    lib.av_log_set_callback(log_callback)
+# TODO: fix below
+# if os.environ.get('PYAV_LOGGING') != 'off':
+    # lib.av_log_set_callback(log_callback)
